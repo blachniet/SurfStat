@@ -1,9 +1,16 @@
 SurfStat
 ===================
 
-_Neither this project nor its author is associated in any way with **ViaSat**_.
+_Neither this project nor its author is associated in any way with **ViaSat**._
 
 This library provides easy access modem status data provided by **ViaSat**'s **SurfBeam&reg; 2** satellite modems' CGI api. 
+
+Get It
+--------------
+
+`SurfStat` is available as a NuGet package: https://www.nuget.org/packages/SurfStat/.
+
+    PM> Install-Package SurfStat
 
 Sample Usage
 -----------------
