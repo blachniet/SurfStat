@@ -1,4 +1,4 @@
-SurfStat Changes
+SurfStat Changelog
 ==================
 
 1.0.0

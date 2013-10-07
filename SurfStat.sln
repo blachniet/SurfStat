@@ -6,7 +6,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{F6E8BAF6-5688-4419-9F0F-15C2594B6722}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
-		CHANGES.md = CHANGES.md
+		CHANGELOG.md = CHANGELOG.md
 		LICENSE.txt = LICENSE.txt
 		README.md = README.md
 	EndProjectSection
