@@ -7,6 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{F6E8BAF6-5
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
 		CHANGELOG.md = CHANGELOG.md
+		CONTRIBUTING.md = CONTRIBUTING.md
 		LICENSE.txt = LICENSE.txt
 		README.md = README.md
 	EndProjectSection
@@ -18,6 +19,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SurfStat.Sample.CLI", "SurfStat.Sample.CLI\SurfStat.Sample.CLI.csproj", "{BD3F9DD5-748D-492C-935F-088161316F02}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{40CC49A5-B631-47BB-B5B5-8694D35E9023}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SurfStat.Sample.CLI.NuGet", "SurfStat.Sample.CLI.NuGet\SurfStat.Sample.CLI.NuGet.csproj", "{2244463B-A5BD-45E2-9D76-72B47236866E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +40,10 @@ Global
 		{BD3F9DD5-748D-492C-935F-088161316F02}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD3F9DD5-748D-492C-935F-088161316F02}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD3F9DD5-748D-492C-935F-088161316F02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2244463B-A5BD-45E2-9D76-72B47236866E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2244463B-A5BD-45E2-9D76-72B47236866E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2244463B-A5BD-45E2-9D76-72B47236866E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2244463B-A5BD-45E2-9D76-72B47236866E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,5 +51,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{0DB5CE6D-395F-4A33-8271-842DB471EFA8} = {4CDB8A4F-1912-44B5-A3E1-78F7DB7AB57D}
 		{BD3F9DD5-748D-492C-935F-088161316F02} = {40CC49A5-B631-47BB-B5B5-8694D35E9023}
+		{2244463B-A5BD-45E2-9D76-72B47236866E} = {40CC49A5-B631-47BB-B5B5-8694D35E9023}
 	EndGlobalSection
 EndGlobal

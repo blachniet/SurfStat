@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>SurfStat</id>
+    <version>1.0.0</version>
+    <title>SurfStat</title>
+    <authors>Brian Lachniet</authors>
+    <owners>Brian Lachniet</owners>
+    <licenseUrl>https://github.com/blachniet/SurfStat/blob/master/LICENSE.txt</licenseUrl>
+    <projectUrl>https://github.com/blachniet/SurfStat</projectUrl>
+    <iconUrl>http://en.gravatar.com/userimage/25295429/51b630b05e01a6d5134ccfd520f547c4.png?size=200</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This library provides easy access modem status data provided by ViaSat's SurfBeam® 2 satellite modems' CGI api.</description>
+    <releaseNotes>1.0.0
+      ------
+
+      Initial release providing the following features.
+
+      - Retrieve the current modem/IFL cable status.
+      - Retrieve the current TRIA status.</releaseNotes>
+    <copyright>Copyright 2013 Brian Lachniet</copyright>
+    <tags>ViaSat Modem SurfBeam Satellite Internet ISP</tags>
+    <references>
+      <reference file="SurfStat.dll" />
+    </references>
+  </metadata>
+</package>
