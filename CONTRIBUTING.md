@@ -8,5 +8,5 @@ Deploying the NuGet Package
 2. Update the `CHANGELOG.md`.
 3. Update the relase notes in the `*.nuspec`.
 4. Update the version in the `*.nuspec`.
-5. `nuget pack -Prop Configuration=Release`
+5. `nuget pack -Prop Configuration=Release -Build`
 6. `nuget push SurfStat.nupkg`
