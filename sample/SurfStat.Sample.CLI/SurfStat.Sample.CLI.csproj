@@ -48,7 +48,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SurfStat\SurfStat.csproj">
+    <ProjectReference Include="..\..\src\SurfStat\SurfStat.csproj">
       <Project>{bd1524cc-59d6-456a-acff-2718c3854377}</Project>
       <Name>SurfStat</Name>
     </ProjectReference>
