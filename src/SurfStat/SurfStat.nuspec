@@ -12,6 +12,14 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
     <releaseNotes>
+      1.1.0
+      ------
+
+      Updated parsing mechanisms to be more resilient by adding sensible defaults instead of throwing exceptions.
+
+      - Updated `ModemStatus` to have sensible defaults when unable to parse
+      - Update `TriaStatus` to have sensible defaults when unable to parse
+
       1.0.0
       ------
 
