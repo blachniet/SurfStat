@@ -43,11 +43,11 @@ The **Modem/IFL Cable Status** page is populated with data obtained from request
 <tr><td>1</td>  <td>MAC Address</td>                  <td><code>00:00:00:00:00:00</code></td></tr>
 <tr><td>2</td>  <td>Software Version</td>             <td><code>UT_1.5.2.2.3</code></td></tr>
 <tr><td>3</td>  <td>Hardware Version</td>             <td><code>UT_7 P3_V1</code></td></tr>
-<tr><td>4</td>  <td>Status</td>                       <td><code>Scanning`, `Online</code></td></tr>
+<tr><td>4</td>  <td>Status</td>                       <td><code>Scanning, Online</code></td></tr>
 <tr><td>5</td>  <td>Transmitted Packets</td>          <td><code>6,946,245</code></td></tr>
 <tr><td>6</td>  <td>Transmitted Bytes</td>            <td><code>1,668,108,099</code></td></tr>
 <tr><td>7</td>  <td>Received Packets</td>             <td><code>9,226,449</code></td></tr>
-<tr><td>8</td>  <td>Received Bytes</td>               <td><code>9,460,216,018`, `9,466,934,881</code></td></tr>
+<tr><td>8</td>  <td>Received Bytes</td>               <td><code>9,460,216,018</code></td></tr>
 <tr><td>9</td>  <td>Online time</td>                  <td><code>000:00:15:16</code></td></tr>
 <tr><td>10</td> <td>Loss of Sync Count</td>          <td><code>1</code></td></tr>
 <tr><td>11</td> <td>Rx SNR (dB)</td>                 <td><code>5.1</code></td></tr>
