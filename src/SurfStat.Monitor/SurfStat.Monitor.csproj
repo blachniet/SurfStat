@@ -8,7 +8,7 @@
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SurfStat.Monitor</RootNamespace>
-    <AssemblyName>SurfStat.Monitor</AssemblyName>
+    <AssemblyName>SurfStatMonitor</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -35,8 +35,9 @@
     <Reference Include="log4net">
       <HintPath>..\..\packages\log4net.2.0.2\lib\net40-full\log4net.dll</HintPath>
     </Reference>
-    <Reference Include="SurfStat">
-      <HintPath>..\..\packages\SurfStat.1.0.0\lib\net45\SurfStat.dll</HintPath>
+    <Reference Include="SurfStat, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\SurfStat.1.1.0-alpha0\lib\net45\SurfStat.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />

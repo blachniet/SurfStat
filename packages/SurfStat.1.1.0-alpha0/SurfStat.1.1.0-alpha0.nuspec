@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
   <metadata>
     <id>SurfStat</id>
-    <version>1.0.0</version>
+    <version>1.1.0-alpha0</version>
     <title>SurfStat</title>
     <authors>Brian Lachniet</authors>
     <owners>Brian Lachniet</owners>
@@ -11,7 +11,15 @@
     <iconUrl>http://en.gravatar.com/userimage/25295429/51b630b05e01a6d5134ccfd520f547c4.png?size=200</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>This library provides easy access modem status data provided by ViaSat's SurfBeam® 2 satellite modems' CGI api.</description>
-    <releaseNotes>1.0.0
+    <releaseNotes>1.1.0
+      ------
+
+      Updated parsing mechanisms to be more resilient by adding sensible defaults instead of throwing exceptions.
+
+      - Updated `ModemStatus` to have sensible defaults when unable to parse
+      - Update `TriaStatus` to have sensible defaults when unable to parse
+
+      1.0.0
       ------
 
       Initial release providing the following features.
