@@ -86,27 +86,39 @@ namespace SurfStat
             try
             {
                 status = new ModemStatus();
-                status.IPAddress = IPAddress.Parse(parts[0]);
-                status.MACAddress = PhysicalAddress.Parse(parts[1].Replace(":", "-").ToUpper());
+
+                IPAddress ip;
+                if (IPAddress.TryParse(parts[0], out ip))
+                    status.IPAddress = ip;
+
+                PhysicalAddress mac;
+                if (TryParsePhysicalAddress(parts[1].Replace(":", "-").ToUpper(), out mac))
+                    status.MACAddress = mac;
+
                 status.SoftwareVersion = parts[2];
                 status.HardwareVersion = parts[3];
                 status.Status = parts[4];
-                status.TransmittedPackets = long.Parse(parts[5].Replace(",", ""));
-                status.TransmittedBytes = long.Parse(parts[6].Replace(",", ""));
-                status.ReceivedPackets = long.Parse(parts[7].Replace(",", ""));
-                status.ReceivedBytes = long.Parse(parts[8].Replace(",", ""));
-                status.OnlineTime = TimeSpan.Parse(parts[9]);
-                status.LossOfSyncCount = int.Parse(parts[10]);
-                status.RxSNR = double.Parse(parts[11]);
-                status.RxSNRPercentage = double.Parse(parts[12].Replace("%", "")) / 100.0;
+
+                status.TransmittedPackets = ParseOrZeroLong(parts[5].Replace(",", ""));
+                status.TransmittedBytes = ParseOrZeroLong(parts[6].Replace(",", ""));
+                status.ReceivedPackets = ParseOrZeroLong(parts[7].Replace(",", ""));
+                status.ReceivedBytes = ParseOrZeroLong(parts[8].Replace(",", ""));
+
+                TimeSpan onlineTime;
+                if (TimeSpan.TryParse(parts[9], out onlineTime))
+                    status.OnlineTime = onlineTime;
+
+                status.LossOfSyncCount = ParseOrZeroInt(parts[10]);
+                status.RxSNR = ParseOrNaNDouble(parts[11]);
+                status.RxSNRPercentage = ParseOrZeroDouble(parts[12].Replace("%", "")) / 100.0;
                 status.SerialNumber = parts[13];
-                status.RxPower = double.Parse(parts[14]);
-                status.RxPowerPercentage = double.Parse(parts[15].Replace("%", "")) / 100.0;
-                status.CableResistance = double.Parse(parts[16]);
-                status.CableResistancePercentage = double.Parse(parts[17].Replace("%", "")) / 100.0;
+                status.RxPower = ParseOrNaNDouble(parts[14]);
+                status.RxPowerPercentage = ParseOrZeroDouble(parts[15].Replace("%", "")) / 100.0;
+                status.CableResistance = ParseOrNaNDouble(parts[16]);
+                status.CableResistancePercentage = ParseOrZeroDouble(parts[17].Replace("%", "")) / 100.0;
                 status.ODUTelemetryStatus = parts[18];
-                status.CableAttenuation = double.Parse(parts[19]);
-                status.CableAttenuationPercentage = double.Parse(parts[20].Replace("%", "")) / 100.0;
+                status.CableAttenuation = ParseOrNaNDouble(parts[19]);
+                status.CableAttenuationPercentage = ParseOrZeroDouble(parts[20].Replace("%", "")) / 100.0;
                 status.IFLType = parts[21];
                 status.PartNumber = parts[22];
                 status.StatusImageUri = new Uri(parts[23], UriKind.Relative);
@@ -156,17 +168,17 @@ namespace SurfStat
                 status.Unknown4 = parts[4];
                 status.Unknown5 = parts[5];
                 status.Unknown6 = parts[6];
-                status.TxIFPower = double.Parse(parts[7]);
+                status.TxIFPower = ParseOrNaNDouble(parts[7]);
                 status.Unknown8 = parts[8];
                 status.Unknown9 = parts[9];
-                status.Temperature = double.Parse(parts[10]);
+                status.Temperature = ParseOrNaNDouble(parts[10]);
                 status.Unknown11 = parts[11];
                 status.Unknown12 = parts[12];
                 status.Unknown13 = parts[13];
                 status.Unknown14 = parts[14];
                 status.Unknown15 = parts[15];
                 status.TriaSerialNumber = parts[16];
-                status.TxRFPower = double.Parse(parts[17]);
+                status.TxRFPower = ParseOrNaNDouble(parts[17]);
                 status.Unknown18 = parts[18];
                 status.Unknown19 = parts[19];
                 status.Unknown20 = parts[20];
@@ -174,8 +186,8 @@ namespace SurfStat
                 status.Unknown22 = parts[22];
                 status.Unknown23 = parts[23];
                 status.Unknown24 = parts[24];
-                status.TxIFPowerPercentage = double.Parse(parts[25].Replace("%", "")) / 100.0;
-                status.TxRFPowerPercentage = double.Parse(parts[26].Replace("%", "")) / 100.0;
+                status.TxIFPowerPercentage = ParseOrZeroDouble(parts[25].Replace("%", "")) / 100.0;
+                status.TxRFPowerPercentage = ParseOrZeroDouble(parts[26].Replace("%", "")) / 100.0;
                 status.Unknown27 = parts[27];
                 status.Unknown28 = parts[28];
                 status.SatelliteStatusImageUri = new Uri(parts[29], UriKind.Relative);
@@ -188,5 +200,55 @@ namespace SurfStat
                 return false;
             }
         }
+
+        #region Parsing Helpers
+
+        private static bool TryParsePhysicalAddress(string macStr, out PhysicalAddress mac)
+        {
+            try
+            {
+                mac = PhysicalAddress.Parse(macStr);
+                return true;
+            }
+            catch (Exception)
+            {
+                mac = null;
+                return false;
+            }
+        }
+
+        private static long ParseOrZeroLong(string longStr)
+        {
+            long num;
+            return long.TryParse(longStr, out num)
+                ? num
+                : 0;
+        }
+
+        private static int ParseOrZeroInt(string intStr)
+        {
+            int num;
+            return int.TryParse(intStr, out num)
+                ? num
+                : 0;
+        }
+
+        private static double ParseOrZeroDouble(string doubleStr)
+        {
+            double num;
+            return double.TryParse(doubleStr, out num)
+                ? num
+                : 0.0;
+        }
+
+        private static double ParseOrNaNDouble(string doubleStr)
+        {
+            double num;
+            return double.TryParse(doubleStr, out num)
+                ? num
+                : double.NaN;
+        }
+
+        #endregion
     }
 }
