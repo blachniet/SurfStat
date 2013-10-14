@@ -32,8 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SurfStat">
-      <HintPath>..\..\packages\SurfStat.1.1.0-alpha0\lib\net45\SurfStat.dll</HintPath>
+    <Reference Include="SurfStat, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\SurfStat.2.0.0-alpha0\lib\net45\SurfStat.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

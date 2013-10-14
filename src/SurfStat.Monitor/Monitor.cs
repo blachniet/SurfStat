@@ -15,7 +15,7 @@ namespace SurfStat.Monitor
 
         public Monitor()
         {
-            _surfStat = new SurfStat();
+            _surfStat = new SurfStatFetcher();
             _timer = new Timer();
             _timer.Elapsed += Timer_Elapsed;
         }
@@ -81,7 +81,7 @@ namespace SurfStat.Monitor
 
         private static readonly ILog _log = LogManager.GetLogger(typeof(Monitor));
         private readonly Timer _timer;
-        private readonly SurfStat _surfStat;
+        private readonly SurfStatFetcher _surfStat;
 
         #endregion
     }

@@ -1,0 +1,397 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SurfStat</name>
+    </assembly>
+    <members>
+        <member name="T:SurfStat.ModemStatus">
+            <summary>
+            Provides information about the modem/IFL cable status.
+            </summary>
+        </member>
+        <member name="P:SurfStat.ModemStatus.IPAddress">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.ModemStatus.MACAddress">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.ModemStatus.SoftwareVersion">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.ModemStatus.HardwareVersion">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.ModemStatus.Status">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.ModemStatus.TransmittedPackets">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.ModemStatus.TransmittedBytes">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.ModemStatus.ReceivedPackets">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.ModemStatus.ReceivedBytes">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.ModemStatus.OnlineTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.ModemStatus.LossOfSyncCount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.ModemStatus.RxSNR">
+            <summary>
+            Gets the RX SNR in dB.
+            </summary>
+        </member>
+        <member name="P:SurfStat.ModemStatus.RxSNRPercentage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.ModemStatus.SerialNumber">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.ModemStatus.RxPower">
+            <summary>
+            Gets the Rx Power in dBm.
+            </summary>
+        </member>
+        <member name="P:SurfStat.ModemStatus.RxPowerPercentage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.ModemStatus.CableResistance">
+            <summary>
+            Gets the Cable Resistance in Ohms.
+            </summary>
+        </member>
+        <member name="P:SurfStat.ModemStatus.CableResistancePercentage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.ModemStatus.ODUTelemetryStatus">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.ModemStatus.CableAttenuation">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.ModemStatus.CableAttenuationPercentage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.ModemStatus.IFLType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.ModemStatus.PartNumber">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.ModemStatus.StatusImageUri">
+            <summary>
+            The URI of the image that appears to in the Status section of the modem/IFL cable status
+            page. This is a URI relative to the base address of the modem.
+            </summary>
+        </member>
+        <member name="P:SurfStat.ModemStatus.SatelliteStatusUri">
+            <summary>
+            The URI of the image taht appears in the top-right corner of all the modem pages, with
+            the different satellites. This is a URI relative to the base address of the modem.
+            </summary>
+        </member>
+        <member name="P:SurfStat.ModemStatus.Unknown25">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.ModemStatus.StatusHtml">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.ModemStatus.HealthHtml">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.ModemStatus.Unknown28">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.ModemStatus.Unknown29">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.ModemStatus.LastPageLoadDuration">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.ModemStatus.Unknown31">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.ModemStatus.Unknown32">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:SurfStat.SurfStatFetcher">
+            <summary>
+            This class handles fetching the different types of status from
+            the modems.
+            </summary>
+        </member>
+        <member name="M:SurfStat.SurfStatFetcher.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SurfStat.SurfStatFetcher"/> class.
+            </summary>
+            <param name="baseAddress">The internal IP address used to access the modem. Defaults to "http://192.168.100.1".</param>
+            <param name="modemStatusUri">The partial URI appended to the <paramref name="baseAddress"/> in order to reach the modem status CGI call. Defaults to "/index.cgi?page=modemStatusData".</param>
+            <param name="triaStatusUri">The partial URI appendend to the <paramref name="baseAddress"/> in order to reach the TRIA status CGI call. Defaults to "/index.cgi?page=triaStatusData".</param>
+        </member>
+        <member name="M:SurfStat.SurfStatFetcher.GetModemStatusAsync">
+            <summary>
+            Requests the current modem status asynchronously.
+            </summary>
+            <returns>The modem status if successfull, null otherwise. If null, <see cref="P:SurfStat.SurfStatFetcher.LastError"/> will be set.</returns>
+        </member>
+        <member name="M:SurfStat.SurfStatFetcher.GetTriaStatusAsync">
+            <summary>
+            Requests the current TRIA status asynchronously.
+            </summary>
+            <returns>The TRIA status if successfull, null otherwise. If null, <see cref="P:SurfStat.SurfStatFetcher.LastError"/> will be set.</returns>
+        </member>
+        <member name="M:SurfStat.SurfStatFetcher.TryParseModemStatus(System.String,SurfStat.ModemStatus@)">
+            <summary>
+            Parses a status from a modem status response.
+            </summary>
+            <param name="statusBody">The body of the HTTP response for the modem status.</param>
+            <param name="status">Outputs the parsed status, or null on failure.</param>
+            <returns>True if successfull, false otherwise.</returns>
+        </member>
+        <member name="M:SurfStat.SurfStatFetcher.TryParseTriaStatus(System.String,SurfStat.TriaStatus@)">
+            <summary>
+            Parses a status from a TRIA status response
+            </summary>
+            <param name="statusBody">The body of the HTTP response for the TRIA status.</param>
+            <param name="status">Outputs the parsed status, or null on failure.</param>
+            <returns>True if successfull, false otherwise.</returns>
+        </member>
+        <member name="P:SurfStat.SurfStatFetcher.BaseAddress">
+            <summary>
+            Gets or sets the base address used to access the modem. The default is http://192.168.100.1.
+            </summary>
+        </member>
+        <member name="P:SurfStat.SurfStatFetcher.ModemStatusUri">
+            <summary>
+            Gets or sets the relative Uri to the modem status CGI request. The default is /index.cgi?page=modemStatusData. 
+            </summary>
+        </member>
+        <member name="P:SurfStat.SurfStatFetcher.TRIAStatusUri">
+            <summary>
+            Gets or sets the relative Uri to the TRIA status CGI request. The default is /index.cgi?page=triaStatusData.
+            </summary>
+        </member>
+        <member name="P:SurfStat.SurfStatFetcher.LastError">
+            <summary>
+            Gets the latest exception causing a call to fail.
+            </summary>
+        </member>
+        <member name="T:SurfStat.TriaStatus">
+            <summary>
+            Provides information about the modem/IFL cable status.
+            </summary>
+        </member>
+        <member name="P:SurfStat.TriaStatus.Unknown0">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.TriaStatus.Unknown1">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.TriaStatus.Unknown2">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.TriaStatus.Unknown3">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.TriaStatus.Unknown4">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.TriaStatus.Unknown5">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.TriaStatus.Unknown6">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.TriaStatus.TxIFPower">
+            <summary>
+            Gets the Tx IF Power in dBm.
+            </summary>
+        </member>
+        <member name="P:SurfStat.TriaStatus.Unknown8">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.TriaStatus.Unknown9">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.TriaStatus.Temperature">
+            <summary>
+            Gets the temperature in celsius.
+            </summary>
+        </member>
+        <member name="P:SurfStat.TriaStatus.Unknown11">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.TriaStatus.Unknown12">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.TriaStatus.Unknown13">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.TriaStatus.Unknown14">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.TriaStatus.Unknown15">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.TriaStatus.TriaSerialNumber">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.TriaStatus.TxRFPower">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.TriaStatus.Unknown18">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.TriaStatus.Unknown19">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.TriaStatus.Unknown20">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.TriaStatus.Unknown21">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.TriaStatus.Unknown22">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.TriaStatus.Unknown23">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.TriaStatus.Unknown24">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.TriaStatus.TxIFPowerPercentage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.TriaStatus.TxRFPowerPercentage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.TriaStatus.Unknown27">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.TriaStatus.Unknown28">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:SurfStat.TriaStatus.SatelliteStatusImageUri">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>
