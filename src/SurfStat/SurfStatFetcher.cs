@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SurfStat
 {
-    public class SurfStat
+    public class SurfStatFetcher
     {
-        public SurfStat(string baseAddress = "http://192.168.100.1", string modemStatusUri = "/index.cgi?page=modemStatusData", string triaStatusUri = "/index.cgi?page=triaStatusData")
+        public SurfStatFetcher(string baseAddress = "http://192.168.100.1", string modemStatusUri = "/index.cgi?page=modemStatusData", string triaStatusUri = "/index.cgi?page=triaStatusData")
         {
             BaseAddress = baseAddress;
             ModemStatusUri = new Uri(modemStatusUri, UriKind.Relative);
