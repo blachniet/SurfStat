@@ -6,8 +6,18 @@ using System.Threading.Tasks;
 
 namespace SurfStat
 {
+    /// <summary>
+    /// This class handles fetching the different types of status from
+    /// the modems.
+    /// </summary>
     public class SurfStatFetcher
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SurfStatFetcher"/> class.
+        /// </summary>
+        /// <param name="baseAddress">The internal IP address used to access the modem. Defaults to "http://192.168.100.1".</param>
+        /// <param name="modemStatusUri">The partial URI appended to the <paramref name="baseAddress"/> in order to reach the modem status CGI call. Defaults to "/index.cgi?page=modemStatusData".</param>
+        /// <param name="triaStatusUri">The partial URI appendend to the <paramref name="baseAddress"/> in order to reach the TRIA status CGI call. Defaults to "/index.cgi?page=triaStatusData".</param>
         public SurfStatFetcher(string baseAddress = "http://192.168.100.1", string modemStatusUri = "/index.cgi?page=modemStatusData", string triaStatusUri = "/index.cgi?page=triaStatusData")
         {
             BaseAddress = baseAddress;
