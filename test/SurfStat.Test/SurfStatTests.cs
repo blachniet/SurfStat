@@ -16,7 +16,7 @@ namespace SurfStat.Test
         [TestMethod]
         public void DefaultConstructorTest()
         {
-            var target = new SurfStat();
+            var target = new SurfStatFetcher();
             Assert.AreEqual("http://192.168.100.1", target.BaseAddress);
             Assert.AreEqual("/index.cgi?page=modemStatusData", target.ModemStatusUri.ToString());
             Assert.AreEqual("/index.cgi?page=triaStatusData", target.TRIAStatusUri.ToString());
@@ -25,7 +25,7 @@ namespace SurfStat.Test
         [TestMethod]
         public void CustomConstructorTest()
         {
-            var target = new SurfStat("http://modem", "/index.cgi?page=testModemData", "/index.cgi?page=testTriaData");
+            var target = new SurfStatFetcher("http://modem", "/index.cgi?page=testModemData", "/index.cgi?page=testTriaData");
             Assert.AreEqual("http://modem", target.BaseAddress);
             Assert.AreEqual("/index.cgi?page=testModemData", target.ModemStatusUri.ToString());
             Assert.AreEqual("/index.cgi?page=testTriaData", target.TRIAStatusUri.ToString());
@@ -35,7 +35,7 @@ namespace SurfStat.Test
         public void ParseModemStatusTest()
         {
             ModemStatus status;
-            var target = new SurfStat();
+            var target = new SurfStatFetcher();
 
             const string statusBody = @"55.55.55.55##55:55:55:55:55:55##UT_1.5.2.2.3##UT_7 P3_V1##Online##7,088,473##1,693,689,905##9,378,757##9,532,929,796##000:01:37:54##2##6.2##32%##012345678901##-44.3##47%##1.5##6%##Active##12.4##82%##Single##0123456789##images/Modem_Status_005_Online.png##/images/Satellite_Status_Purple.png##0##<p style=""color:green"">Connected</p>##<p style=""color:green"">Good</p>##0.00%##0.00%##6.67s##195##10000000##";
             Assert.IsTrue(target.TryParseModemStatus(statusBody, out status));
@@ -76,7 +76,7 @@ namespace SurfStat.Test
         public void ParseInvalidModemStatusTest()
         {
             ModemStatus status;
-            var target = new SurfStat();
+            var target = new SurfStatFetcher();
 
             // Wrong number of values
             const string statusBody0 = @"55.55.55.55##55:55:55:55:55:55##UT_1.5.2.2.3";            
@@ -92,7 +92,7 @@ namespace SurfStat.Test
         public void DefaultValuesModemStatusTest()
         {
             ModemStatus status;
-            var target = new SurfStat();
+            var target = new SurfStatFetcher();
             const string statusBody = @"ip##mac##UT_1.5.2.2.3##UT_7 P3_V1##Online##transp##transb##recp##recb##onlinetime##lossofsync##rxsnr##rxsnrperc##012345678901##rxpow##rxpowperc##cableres##cableresperc##Active##cableatt##cableattperc##Single##0123456789##images/Modem_Status_005_Online.png##/images/Satellite_Status_Purple.png##0##<p style=""color:green"">Connected</p>##<p style=""color:green"">Good</p>##0.00%##0.00%##6.67s##195##10000000##";
             Assert.IsTrue(target.TryParseModemStatus(statusBody, out status));
             Assert.IsNull(status.IPAddress);
@@ -117,7 +117,7 @@ namespace SurfStat.Test
         public void ParseTriaStatusTest()
         {
             TriaStatus status;
-            var target = new SurfStat();
+            var target = new SurfStatFetcher();
             const string statusBody = @"images/green_check_small_002.png##images/green_check_small_002.png##images/green_check_small_002.png##images/green_check_small_002.png##Reduced power##Right##WIN##-21.4##images/green_check_small_002.png##SINGLE##30##images/green_check_small_002.png##images/green_check_small_002.png##images/green_check_small_002.png##2.0##2652##0123456789##35.3##images/green_check_small_002.png##11##images/green_check_small_002.png##11##2##33##13.05##55%##81%##No##No##/images/Satellite_Status_Purple.png##";
 
             Assert.IsTrue(target.TryParseTriaStatus(statusBody, out status));
@@ -135,7 +135,7 @@ namespace SurfStat.Test
         public void ParseInvalidTriaStatusTest()
         {
             TriaStatus status;
-            var target = new SurfStat();            
+            var target = new SurfStatFetcher();            
 
             // Wrong number of values
             const string statusBody0 = @"images/green_check_small_002.png##images/green_check_small_002.png##";
@@ -148,8 +148,8 @@ namespace SurfStat.Test
         public void DefaultValuesTriaStatusTest()
         {
             TriaStatus status;
-            var target = new SurfStat();            
-            target = new SurfStat();
+            var target = new SurfStatFetcher();            
+            target = new SurfStatFetcher();
             const string statusBody1 = @"images/green_check_small_002.png##images/green_check_small_002.png##images/green_check_small_002.png##images/green_check_small_002.png##Reduced power##Right##WIN##txifpower##images/green_check_small_002.png##SINGLE##temperature##images/green_check_small_002.png##images/green_check_small_002.png##images/green_check_small_002.png##2.0##2652##0123456789##txrfpower##images/green_check_small_002.png##11##images/green_check_small_002.png##11##2##33##13.05##txifpowerperc##txrfpowerperc##No##No##/images/Satellite_Status_Purple.png##";
             Assert.IsTrue(target.TryParseTriaStatus(statusBody1, out status));
             Assert.IsTrue(double.IsNaN(status.TxIFPower));

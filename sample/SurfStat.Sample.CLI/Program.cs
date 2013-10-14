@@ -9,13 +9,13 @@ namespace SurfStat.Sample.CLI
         {
             if (string.Equals(args[0], "modem", StringComparison.OrdinalIgnoreCase) || string.Equals(args[0], "m", StringComparison.OrdinalIgnoreCase))
             {
-                var stat = new SurfStat();
+                var stat = new SurfStatFetcher();
                 var status = stat.GetModemStatusAsync().Result;
                 WriteObject(status);
             }
             else if (string.Equals(args[0], "tria", StringComparison.OrdinalIgnoreCase) || string.Equals(args[0], "t", StringComparison.OrdinalIgnoreCase))
             {
-                var stat = new SurfStat();
+                var stat = new SurfStatFetcher();
                 var status = stat.GetTriaStatusAsync().Result;
                 WriteObject(status);
             }

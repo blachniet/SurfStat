@@ -41,8 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ModemStatus.cs" />
-    <Compile Include="SurfStat.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SurfStatFetcher.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="TriaStatus.cs" />
   </ItemGroup>
   <ItemGroup>

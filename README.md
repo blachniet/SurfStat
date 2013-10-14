@@ -17,7 +17,7 @@ Sample Usage
 
 Get the modem status asynchronously.
 
-    var stat = new SurfStat();
+    var stat = new SurfStatFetcher();
     var modemStatus = await stat.GetModemStatusAsync();
     if (modemStatus != null)
     {
@@ -26,7 +26,7 @@ Get the modem status asynchronously.
 
 Get the TRIA status synchronously
 
-    var stat = new SurfStat();
+    var stat = new SurfStatFetcher();
     var triaStatus = stat.GetTriaStatusAsync().Result;
     if (triaStatus != null)
     {
