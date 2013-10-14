@@ -1,6 +1,12 @@
 SurfStat Changelog
 ==================
 
+2.0.0
+------
+
+- Renamed `SurfStat` to `SurfStatFetcher` to simplify usage
+- Added the xml documentation file
+
 1.1.0
 ------
 
