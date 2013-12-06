@@ -17,21 +17,25 @@ Sample Usage
 
 Get the modem status asynchronously.
 
-    var stat = new SurfStatFetcher();
-    var modemStatus = await stat.GetModemStatusAsync();
-    if (modemStatus != null)
-    {
-        Console.WriteLine("The modem's external IP address is {0}", status.IPAddress);
-    }
+```csharp
+var stat = new SurfStatFetcher();
+var modemStatus = await stat.GetModemStatusAsync();
+if (modemStatus != null)
+{
+    Console.WriteLine("The modem's external IP address is {0}", status.IPAddress);
+}
+```
 
-Get the TRIA status synchronously
+Get the TRIA status synchronously.
 
-    var stat = new SurfStatFetcher();
-    var triaStatus = stat.GetTriaStatusAsync().Result;
-    if (triaStatus != null)
-    {
-        Console.WriteLine("The TRIA's temperature is {0}C", status.Temperature);
-    }
+```csharp
+var stat = new SurfStatFetcher();
+var triaStatus = stat.GetTriaStatusAsync().Result;
+if (triaStatus != null)
+{
+    Console.WriteLine("The TRIA's temperature is {0}C", status.Temperature);
+}
+```
 
 Modem Status
 ---------------------------------
